@@ -1,8 +1,10 @@
-# What I Learned
+# Calculator using React Native
+
+## What I Learned
 
 - Don't install a package with npm when the server is still running, because you can't.
 
-# Resources that help me
+## Resources that help me
 
 - Error and Warning
   - https://stackoverflow.com/questions/37620473/react-native-error-element-type-is-invalid-expected-a-string-or-a-class-functi
