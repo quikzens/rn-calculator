@@ -7,17 +7,20 @@ import ListButton from './src/components/ListButton'
 const App = () => {
   const [value, setValue] = useState('')
   const [previous, setPrevious] = useState('')
-  const operators = ['+', '-', '/', '*']
+  const operators = ['+', '-', '/', '*', '%']
 
   const handleClick = (text) => {
+    const lastChar = value.charAt(value.length - 1)
+    if (lastChar === '0' && value.length === 1 && operators.includes(text))
+      return
+
     if (value === '0') {
       setValue('')
     }
 
-    if (value.length === 0 && text === '0') return
+    if (value.length === 0 && (text === '0' || text === '.')) return
     if (value.length === 0 && operators.includes(text)) return
 
-    const lastChar = value.charAt(value.length - 1)
     if (operators.includes(lastChar) && operators.includes(text)) return
 
     setValue((value) => {
@@ -31,11 +34,26 @@ const App = () => {
     setValue(result.toString())
   }
 
+  const handleSubtract = () => {
+    setValue((value) => {
+      return value.slice(0, value.length - 1)
+    })
+  }
+
+  const handleClean = () => {
+    setValue('')
+  }
+
   return (
     <Box backgroundColor='#ffa0a0' height='100%'>
       <Title content='Calculator' />
       <Display previous={previous} value={value} />
-      <ListButton handleClick={handleClick} handleResult={handleResult} />
+      <ListButton
+        handleClick={handleClick}
+        handleResult={handleResult}
+        handleSubtract={handleSubtract}
+        handleClean={handleClean}
+      />
     </Box>
   )
 }

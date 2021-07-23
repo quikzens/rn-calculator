@@ -12,3 +12,4 @@
   - https://stackoverflow.com/questions/27731303/why-object-prototype-tostring-return-object-object
   - https://www.geeksforgeeks.org/how-to-get-the-last-character-of-a-string-in-javascript/
   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
+  - https://www.w3schools.com/jsref/jsref_charat.asp
